@@ -56,8 +56,8 @@ countries
 
 # format timestamp text
 local_tz = pytz.timezone('Asia/Tokyo')
-now = local_tz.localize(datetime.datetime.now())
-datestring = "{0:%Y-%m-%d} (JST)".format(now)
+now = datetime.datetime.now().astimezone(local_tz)
+datestring = "{0:%Y-%m-%d %H:%M} (JST)".format(now)
 datestring
 
 # Extract data from Feb 20th 2020
