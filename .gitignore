@@ -1,0 +1,4 @@
+.venv/
+dist/*.png
+dist/corona-cases.html
+
