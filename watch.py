@@ -11,5 +11,5 @@ while True:
     now = datetime.datetime.now()
     datestring = "{0:%Y-%m-%d %H:%M:%S} (JST)".format(now)
     with open("dist/index.html", "w") as f:
-        f.write(template.render(tstamp=datestring))
+        f.write(template.render(tstamp=datestring, tstampserial=int(time.time())))
     time.sleep(3)

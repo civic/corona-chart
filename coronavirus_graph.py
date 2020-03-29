@@ -12,6 +12,7 @@ import pandas as pd
 import io
 import datetime
 import pytz
+import time
 from jinja2 import Template, Environment, FileSystemLoader
 
 # Get original data from CSSE github
@@ -107,4 +108,4 @@ plt.figure.savefig("dist/b.png")
 env = Environment(loader=FileSystemLoader("dist"))
 template = env.get_template("template.html")
 with open("dist/index.html", "w") as f:
-    f.write(template.render(tstamp=datestring))
+    f.write(template.render(tstamp=datestring, tstampserial=int(time.time())))
