@@ -106,5 +106,5 @@ plt.figure.savefig("dist/b.png")
 
 env = Environment(loader=FileSystemLoader("dist"))
 template = env.get_template("template.html")
-with open("dist/corona-cases.html", "w") as f:
+with open("dist/index.html", "w") as f:
     f.write(template.render(tstamp=datestring))
