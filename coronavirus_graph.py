@@ -11,6 +11,7 @@ import requests
 import pandas as pd
 import io
 import datetime
+import pytz
 from jinja2 import Template, Environment, FileSystemLoader
 
 # Get original data from CSSE github
@@ -54,7 +55,8 @@ countries.sort(key=lambda c:df5.iloc[-1][c], reverse=True)
 countries
 
 # format timestamp text
-now = datetime.datetime.now().astimezone(datetime.timezone(datetime.timedelta(hours=9)))
+local_tz = pytz.timezone('Asia/Tokyo')
+now = local_tz.localize(datetime.datetime.now())
 datestring = "{0:%Y-%m-%d} (JST)".format(now)
 datestring
 
@@ -99,7 +101,7 @@ plt.set_ylabel("Cumulative cases\n(Logarithmic scale)")
 plt.set_xlabel("Days since place's first day with 100 or more cases")
 plt.figure.text(0.30, 0.80, "Data from https://github.com/CSSEGISandData/COVID-19", size=10, fontfamily="Monospace")
 plt.figure.text(0.30, 0.78, "Source code: https://bit.ly/2QSj1Wl", size=10, fontfamily="Monospace")
-plt.figure.text(0.30, 0.83, f"Last Update: {datestring}", size=24)
+plt.figure.text(0.30, 0.83, "Last Update: "+datestring, size=24)
 plt.figure.savefig("dist/b.png")
 
 env = Environment(loader=FileSystemLoader("dist"))
