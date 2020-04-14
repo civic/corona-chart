@@ -51,7 +51,7 @@ df5=df4.pivot_table(values="value", index="date", columns="Country/Region")
 df5
 
 # make coutry list sorted by cases at last day
-countries = ["Japan", "Spain", "United Kingdom", "France", "Italy", "US", "Korea, South", "Philippines", "Singapore"]
+countries = ["Japan", "Spain", "United Kingdom", "France", "Italy", "US", "Korea, South", "Philippines", "Singapore", "Germany", ]
 countries.sort(key=lambda c:df5.iloc[-1][c], reverse=True)
 countries
 
