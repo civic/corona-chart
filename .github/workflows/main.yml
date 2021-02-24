@@ -5,7 +5,7 @@ name: cron-netlify-build
 # Controls when the action will run. 
 on:
   schedule:
-    - cron: '15 13 * * *'
+    - cron: '15 4 * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,5 +20,5 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: post netlify build hook
-        run: tsasaki curl --silent -X POST -d {} https://api.netlify.com/build_hooks/5e80430a75aa64ff290711f0
+        run: curl --silent -X POST -d {} https://api.netlify.com/build_hooks/5e80430a75aa64ff290711f0
 
