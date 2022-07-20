@@ -7,6 +7,7 @@ verify_ssl = true
 
 [packages]
 pandas = "~=1.0.5"
+numpy = "~=1.22.0"
 requests = "*"
 matplotlib = "==3.0.3"
 jinja2 = "*"
